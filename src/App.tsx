@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import './App.css';
 import 'flexboxgrid';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Header } from './components/Header/Header';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Post from './pages/Post';
 
-const App = () => {
+const App: FC = () => {
   return (
-    <div className="app">
-      <h1>Hello World</h1>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/Login">
+          <Login />
+        </Route>
+        <Route path="/Post">
+          <Post />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
