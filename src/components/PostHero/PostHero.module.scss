@@ -1,0 +1,12 @@
+$white: white;
+$grey: #8D8D8D;
+.postHero {
+    background-color: $white;
+    width: 500px;
+    height: 500px;
+    border-color: $grey;
+    border-radius: 5px;
+    border-width: thin;
+    margin-bottom: 30px;
+    padding: 10px;
+}

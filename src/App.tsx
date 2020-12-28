@@ -1,10 +1,9 @@
-import React, { FC, useState } from 'react';
-import './App.css';
+import React, { FC } from 'react';
 import 'flexboxgrid';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import Home from './pages/Home';
-import Login from './pages/Login';
+
 import Post from './pages/Post';
 
 const App: FC = () => {
@@ -12,13 +11,10 @@ const App: FC = () => {
     <Router>
       <Header />
       <Switch>
-        <Route path="/Login">
-          <Login />
-        </Route>
-        <Route path="/Post">
+        <Route path="/Post/:idPost">
           <Post />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>
