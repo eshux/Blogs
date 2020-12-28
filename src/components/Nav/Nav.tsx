@@ -6,8 +6,6 @@ export const Nav: FC = () => {
     <nav>
       <NavLink to="/">Home</NavLink>
       &nbsp; &nbsp;
-      <NavLink to="/Login">Login</NavLink>
-      &nbsp; &nbsp;
       <NavLink to="/Post">Post</NavLink>
     </nav>
   );
