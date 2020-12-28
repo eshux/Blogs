@@ -10,7 +10,7 @@ type Props = {
   onClick: () => void;
 };
 
-const PostCard: FC<Props> = ({ userId, id, title, body, onClick }) => {
+export const PostCard: FC<Props> = ({ userId, id, title, body, onClick }) => {
   return (
     <button type="button" className={style.postCard} onClick={onClick}>
       <div>
@@ -23,5 +23,3 @@ const PostCard: FC<Props> = ({ userId, id, title, body, onClick }) => {
     </button>
   );
 };
-
-export default PostCard;

@@ -7,14 +7,6 @@ import { Comments } from '../store/comments/types';
 import PostHero from '../components/PostHero/PostHero';
 import { RootState } from '../store/rootReducer';
 
-type PostHero = {
-  postId: number;
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-};
-
 const Post = () => {
   const dispatch = useDispatch();
   const newPosts = useSelector((state: RootState) => state.postReducer);
@@ -30,7 +22,6 @@ const Post = () => {
             return index < 75;
           }
         );
-
         dispatch(getComments(filteredComments));
       });
   }, []);

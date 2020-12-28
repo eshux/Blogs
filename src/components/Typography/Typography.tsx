@@ -10,5 +10,5 @@ export const Title: FC<Props> = ({ children, className }) => {
 };
 
 export const Body: FC<Props> = ({ children, className }) => {
-  return <span className={`body ${className}`}>{children}</span>;
+  return <p className={`body ${className}`}>{children}</p>;
 };

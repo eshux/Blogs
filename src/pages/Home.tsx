@@ -4,16 +4,9 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { getPosts } from '../store/posts/action';
 import { Posts } from '../store/posts/types';
-import PostCard from '../components/PostCard/PostCard';
+import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
-
-type PostCard = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
 
 const Home = () => {
   const dispatch = useDispatch();
