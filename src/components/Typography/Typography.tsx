@@ -1,14 +1,18 @@
 import React, { FC } from 'react';
 import style from './Typography.module.scss';
 
-type Props = {
-  className?: string;
+export const H1: FC = ({ children }) => {
+  return <h1 className={style.h1}>{children}</h1>;
 };
 
-export const Title: FC<Props> = ({ children, className }) => {
-  return <h3 className={`title ${className}`}>{children}</h3>;
+export const H2: FC = ({ children }) => {
+  return <h2 className={style.h2}>{children}</h2>;
 };
 
-export const Body: FC<Props> = ({ children, className }) => {
-  return <p className={`body ${className}`}>{children}</p>;
+export const P1: FC = ({ children }) => {
+  return <p className={style.p1}>{children}</p>;
+};
+
+export const P2: FC = ({ children }) => {
+  return <p className={style.p2}>{children}</p>;
 };

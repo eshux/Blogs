@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Title, Body } from '../Typography/Typography';
+import { H2, P2 } from '../Typography/Typography';
 import style from './PostCard.module.scss';
 
 type Props = {
@@ -18,8 +18,8 @@ export const PostCard: FC<Props> = ({ userId, id, title, body, onClick }) => {
           <img src={`https://picsum.photos/id/${id}/200/200`} alt="" />
         </span>
       </div>
-      <Title>{title}</Title>
-      <Body>{body}</Body>
+      <H2>{title}</H2>
+      <P2>{body}</P2>
     </button>
   );
 };
