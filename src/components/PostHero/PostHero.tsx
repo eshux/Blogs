@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Title, Body } from '../Typography/Typography';
+import { H1, P1 } from '../Typography/Typography';
 import style from './PostHero.module.scss';
 
 type Props = {
@@ -10,8 +10,8 @@ type Props = {
 const PostHero: FC<Props> = ({ id, title, body }) => {
   return (
     <div className={style.postHero}>
-      <Title>{title}</Title>
-      <Body>{body}</Body>
+      <H1>{title}</H1>
+      <P1>{body}</P1>
     </div>
   );
 };
