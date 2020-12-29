@@ -3,10 +3,6 @@ import style from './SearchBar.module.scss';
 import icon from '../../assets/SearchIcon.svg';
 import closeIcon from '../../assets/CloseIcon.svg';
 
-// type Props = {
-//   id: string;
-//   labelTitle: string;
-// };
 
 export const SearchBar: FC = () => {
   const [value, setValue] = useState('');

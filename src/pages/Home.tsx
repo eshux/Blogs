@@ -8,9 +8,11 @@ import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
 
+
 const Home = () => {
   const dispatch = useDispatch();
   const newPosts = useSelector((state: RootState) => state.postReducer);
+  const users = useSelector((state: RootState) => state.userReducer);
   const history = useHistory();
 
   useEffect(() => {
@@ -24,6 +26,10 @@ const Home = () => {
     });
   }, []);
 
+  const activeUser = users.find((item) => item.isActive);
+
+
+
   if (!newPosts[0]) {
     return <h1>Loading...</h1>;
   }
@@ -32,7 +38,7 @@ const Home = () => {
       <div className="container">
         <div className="row center-xs">
           <div className="col-xs-12">
-            <h1>This is Home Page</h1>
+            <h1>Hello {activeUser?.userName}</h1>
             <SearchBar />
           </div>
         </div>
