@@ -7,18 +7,20 @@ import { H2 } from '../components/Typography/Typography';
 import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
+import { UserData } from '../data/userData';
 
 const Home = () => {
   const dispatch = useDispatch();
   const newPosts = useSelector((state: RootState) => state.postReducer);
-  const users = useSelector((state: RootState) => state.userReducer);
+  // @ts-ignore
+  const activeUser: UserData = useSelector(
+    (state: RootState) => state.userReducer
+  );
   const history = useHistory();
 
   useEffect(() => {
     dispatch(getPostData());
   }, []);
-
-  const activeUser = users.find((item) => item.isActive);
 
   if (!newPosts[0]) {
     return <h1>Loading...</h1>;
@@ -28,7 +30,7 @@ const Home = () => {
       <div className="container">
         <div className="row center-xs">
           <div className="col-xs-12">
-            <H2>Hello {activeUser?.userName}</H2>
+            <H2>Hello {activeUser && activeUser?.userName}</H2>
             <SearchBar />
           </div>
         </div>

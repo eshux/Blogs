@@ -3,7 +3,6 @@ import 'flexboxgrid';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import Home from './pages/Home';
-
 import Post from './pages/Post';
 
 const App: FC = () => {
