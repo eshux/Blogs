@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { getPosts } from '../store/posts/action';
+import { getPosts, getPostData } from '../store/posts/action';
 import { H2 } from '../components/Typography/Typography';
 import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
@@ -15,14 +15,7 @@ const Home = () => {
   const history = useHistory();
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
-      const filteredPosts = response.data.filter(
-        (item: Object, index: number) => {
-          return index < 15;
-        }
-      );
-      dispatch(getPosts(filteredPosts));
-    });
+    dispatch(getPostData());
   }, []);
 
   const activeUser = users.find((item) => item.isActive);
