@@ -3,7 +3,7 @@ import { postReducer } from './posts/reducer';
 import { commentReducer } from './comments/reducer';
 import { loginReducer } from './login/reducer';
 import { inputReducer } from './input/reducer';
-import { userReducer} from './users/reducer';
+import { userReducer } from './users/reducer';
 
 const rootReducer = combineReducers({
   postReducer,

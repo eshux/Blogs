@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { getPosts } from '../store/posts/action';
-import { Posts } from '../store/posts/types';
 import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
-
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -27,8 +25,6 @@ const Home = () => {
   }, []);
 
   const activeUser = users.find((item) => item.isActive);
-
-
 
   if (!newPosts[0]) {
     return <h1>Loading...</h1>;

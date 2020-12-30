@@ -3,11 +3,13 @@ import {
   CHANGE_INPUT_VALUE,
   InitialState,
   CHANGE_PASSWORD_VALUE,
+  CHANGE_SEARCH_INPUT,
 } from './type';
 
 const initialState: InitialState = {
   userName: '',
   password: '',
+  searchInput: '',
 };
 
 export const inputReducer = (state = initialState, actions: AllActions) => {
@@ -21,6 +23,11 @@ export const inputReducer = (state = initialState, actions: AllActions) => {
       const newState = { ...state };
       newState.password = actions.inputValue;
       return newState;
+    }
+    case CHANGE_SEARCH_INPUT: {
+      const newSearch = { ...state };
+      newSearch.searchInput = actions.inputValue;
+      return newSearch;
     }
     default:
       return state;
