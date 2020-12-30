@@ -1,20 +1,16 @@
 import React, { FC, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './SearchBar.module.scss';
 import icon from '../../assets/SearchIcon.svg';
 import closeIcon from '../../assets/CloseIcon.svg';
-
+import { changeSearchInput } from '../../store/input/action';
+import { RootState } from '../../store/rootReducer';
 
 export const SearchBar: FC = () => {
-  const [value, setValue] = useState('');
-
-  const onChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setValue(event.target.value);
-  };
-  const onClear = () => {
-    setValue('');
-  };
+  const dispatch = useDispatch();
+  const inputValue = useSelector(
+    (state: RootState) => state.inputReducer.searchInput
+  );
 
   return (
     <div className={style.searchWrapper}>
@@ -24,11 +20,15 @@ export const SearchBar: FC = () => {
         className={style.inputText}
         type="text"
         placeholder="Search"
-        value={value}
-        onChange={onChange}
+        value={inputValue}
+        onChange={(event) => dispatch(changeSearchInput(event.target.value))}
       />
 
-      <button type="button" className={style.closeButton} onClick={onClear}>
+      <button
+        type="button"
+        className={style.closeButton}
+        onClick={() => dispatch(changeSearchInput(''))}
+      >
         <img src={closeIcon} alt="" />
       </button>
     </div>
