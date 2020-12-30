@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { getComments } from '../store/comments/action';
+import { getCommentsData } from '../store/comments/action';
+import { getPostData } from '../store/posts/action';
 import { Comments } from '../store/comments/types';
 import PostHero from '../components/PostHero/PostHero';
 import { RootState } from '../store/rootReducer';
@@ -14,16 +15,8 @@ const Post = () => {
   const { idPost } = useParams<{ idPost: string }>();
 
   useEffect(() => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/comments')
-      .then((response) => {
-        const filteredComments = response.data.filter(
-          (item: Object, index: number) => {
-            return index < 75;
-          }
-        );
-        dispatch(getComments(filteredComments));
-      });
+    dispatch(getPostData());
+    dispatch(getCommentsData());
   }, []);
 
   const singlePost = newPosts.find((item) => item.id === Number(idPost));
