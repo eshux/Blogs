@@ -8,6 +8,7 @@ import {
   changePasswordValue,
 } from '../../store/input/action';
 import { setActiveUser } from '../../store/users/action';
+import { UserData } from '../../data/userData';
 
 const Login: FC = () => {
   const dispatch = useDispatch();
@@ -19,8 +20,8 @@ const Login: FC = () => {
     (state: RootState) => state.inputReducer.password
   );
 
-  const users = useSelector((state: RootState) => state.userReducer);
-  const allUserNames = users.map((item) => item.userName);
+  const users: UserData[] = JSON.parse(localStorage.users);
+  const allUserNames: string[] = users.map((item) => item.userName);
   console.log(allUserNames);
 
   const loginHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -28,9 +29,12 @@ const Login: FC = () => {
     if (allUserNames.includes(inputValue)) {
       const activeUser = users.find((item) => item.userName === inputValue);
       if (activeUser!.password === passwordValue) {
-        dispatch(setActiveUser(activeUser!.userId));
+        dispatch(setActiveUser(activeUser!));
+        dispatch(showLogin(!show));
       }
     }
+    dispatch(changeInputValue(''));
+    dispatch(changePasswordValue(''));
   };
 
   console.log(inputValue, passwordValue);

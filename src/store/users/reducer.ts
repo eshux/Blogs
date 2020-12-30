@@ -1,18 +1,15 @@
-import { userData } from '../../data/userData';
+import { UserData } from '../../data/userData';
 import { AllActions, SET_ACTIVE_USER } from './types';
 
-const initialState = userData;
+const initialState = {};
 
-export const userReducer = (state = initialState, action: AllActions) => {
+export const userReducer = (
+  state = initialState,
+  action: AllActions
+): {} | UserData => {
   switch (action.type) {
     case SET_ACTIVE_USER: {
-      return state.map((item) => {
-        if (item.userId === action.id) {
-          // eslint-disable-next-line no-param-reassign
-          item.isActive = true;
-        }
-        return item;
-      });
+      return action.activeUser;
     }
     default:
       return state;
