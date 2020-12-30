@@ -8,7 +8,6 @@ import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const newPosts = useSelector((state: RootState) => state.postReducer);
@@ -27,8 +26,6 @@ const Home = () => {
   }, []);
 
   const activeUser = users.find((item) => item.isActive);
-
-
 
   if (!newPosts[0]) {
     return <h1>Loading...</h1>;
