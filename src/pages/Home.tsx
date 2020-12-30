@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { getPosts } from '../store/posts/action';
+import { H2 } from '../components/Typography/Typography';
 import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
@@ -34,7 +35,7 @@ const Home = () => {
       <div className="container">
         <div className="row center-xs">
           <div className="col-xs-12">
-            <h1>Hello {activeUser?.userName}</h1>
+            <H2>Hello {activeUser?.userName}</H2>
             <SearchBar />
           </div>
         </div>
