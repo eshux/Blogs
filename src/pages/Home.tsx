@@ -10,6 +10,9 @@ import { UserData } from '../data/userData';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const searchValue = useSelector(
+    (state: RootState) => state.inputReducer.searchInput
+  );
   const newPosts = useSelector((state: RootState) => state.postReducer);
   // @ts-ignore
   const activeUser: UserData = useSelector(
@@ -21,7 +24,7 @@ const Home = () => {
     dispatch(getPostData());
   }, []);
 
-  // const activeUser = users.find((item) => item.isActive);
+  const filtered = newPosts.filter((item) => item.title.includes(searchValue));
 
   if (!newPosts[0]) {
     return <h1>Loading...</h1>;
@@ -38,18 +41,37 @@ const Home = () => {
         </div>
 
         <div className="row center-xs">
-          {newPosts.map(({ id, title, body }) => {
-            return (
-              <div key={id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <PostCard
-                  id={id}
-                  title={title}
-                  body={body}
-                  onClick={() => history.push(`/Post/${id}`)}
-                />
-              </div>
-            );
-          })}
+          {!searchValue
+            ? newPosts.map(({ id, title, body }) => {
+              return (
+                <div
+                  key={id}
+                  className="col-lg-3 col-md-4 col-sm-6 col-xs-12"
+                >
+                  <PostCard
+                    id={id}
+                    title={title}
+                    body={body}
+                    onClick={() => history.push(`/Post/${id}`)}
+                  />
+                </div>
+              );
+            })
+            : filtered.map(({ id, title, body }) => {
+              return (
+                <div
+                  key={id}
+                  className="col-lg-3 col-md-4 col-sm-6 col-xs-12"
+                >
+                  <PostCard
+                    id={id}
+                    title={title}
+                    body={body}
+                    onClick={() => history.push(`/Post/${id}`)}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
     </section>
