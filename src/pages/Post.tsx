@@ -32,8 +32,8 @@ const Post = () => {
           <div className="col-xs-12">
             <h1>This is Post Page</h1>
           </div>
-          <div className="row">
-            <div className="col-xs-6 center-xs">
+          <div className="row center-xs">
+            <div className="col-xs-12 center-xs">
               <PostHero
                 id={singlePost.id}
                 title={singlePost.title}
@@ -43,17 +43,16 @@ const Post = () => {
           </div>
 
           <div className="row">
-            <div className="col-xs-6 center-xs">
+            <div className="col-xs-12 center-xs">
               <CommentField idPost={idPost} />
             </div>
           </div>
 
-          <div className="row">
-            {newPosts.slice(1, 4).map(({ userId, id, title, body }) => {
+          <div className="row center-xs">
+            {newPosts.slice(1, 4).map(({ id, title, body }) => {
               return (
                 <div key={id} className="col-md-4 col-sm-6 col-xs-12">
                   <PostCard
-                    userId={userId}
                     id={id}
                     title={title}
                     body={body}

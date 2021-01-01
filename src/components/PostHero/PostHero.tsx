@@ -8,10 +8,13 @@ type Props = {
   title: string;
   body: string;
 };
+
 const PostHero: FC<Props> = ({ id, title, body }) => {
   return (
     <div className={style.postHero}>
-      <Image w={1} h={1} id={id} />
+      <div className={style.img}>
+        <Image w={1} h={1} id={id} />
+      </div>
       <H1>{title}</H1>
       <P1>{body}</P1>
     </div>
