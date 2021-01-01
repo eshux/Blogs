@@ -25,9 +25,9 @@ export const P2: FC = ({ children }) => {
   return <p className={style.p2}>{children}</p>;
 };
 
-export const P3: FC = ({ children }) => {
-  return <p className={style.p3}>{children}</p>;
-};
+// export const P3: FC = ({ children }) => {
+//   return <p className={style.p3}>{children}</p>;
+// };
 
 export const P4: FC = ({ children }) => {
   return <p className={style.p4}>{children}</p>;
