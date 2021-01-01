@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { H1, P1 } from '../Typography/Typography';
 import style from './PostHero.module.scss';
+import { Image } from '../Image/Image';
 
 type Props = {
   id: number;
@@ -10,6 +11,7 @@ type Props = {
 const PostHero: FC<Props> = ({ id, title, body }) => {
   return (
     <div className={style.postHero}>
+      <Image w={1} h={1} id={id} />
       <H1>{title}</H1>
       <P1>{body}</P1>
     </div>

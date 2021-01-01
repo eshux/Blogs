@@ -20,7 +20,9 @@ export const Header: FC = () => {
             <Nav />
           </div>
           <div className="col-xs-3">
-            <button type='button' onClick={() => dispatch(showLogin(!show))}>Login</button>
+            <button type="button" onClick={() => dispatch(showLogin(!show))}>
+              Login
+            </button>
           </div>
           <Login />
         </div>

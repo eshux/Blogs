@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+
 import { useHistory } from 'react-router-dom';
 import { getPosts, getPostData } from '../store/posts/action';
 import { H2 } from '../components/Typography/Typography';
