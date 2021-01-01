@@ -4,7 +4,7 @@ import style from './Login.module.scss';
 import { RootState } from '../../store/rootReducer';
 import { showLogin } from '../../store/login/action';
 import {
-  changeInputValue,
+  changeUsernameValue,
   changePasswordValue,
 } from '../../store/input/action';
 import { setActiveUser } from '../../store/users/action';
@@ -33,7 +33,7 @@ const Login: FC = () => {
         dispatch(showLogin(!show));
       }
     }
-    dispatch(changeInputValue(''));
+    dispatch(changeUsernameValue(''));
     dispatch(changePasswordValue(''));
   };
 
@@ -57,7 +57,7 @@ const Login: FC = () => {
             type="text"
             placeholder="Username"
             value={inputValue}
-            onChange={(event) => dispatch(changeInputValue(event.target.value))}
+            onChange={(e) => dispatch(changeUsernameValue(e.target.value))}
           />
           <br />
           <input
