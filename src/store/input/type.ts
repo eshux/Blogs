@@ -4,6 +4,7 @@ export const CHANGE_SEARCH_INPUT = 'CHANGE_SEARCH_INPUT';
 export const CHANGE_USER_NAME = 'CHANGE_USER_NAME';
 export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
 export const CHANGE_USER_COMMENT = 'CHANGE_USER_COMMENT';
+export const CHANGE_EDIT_INPUT = 'CHANGE_EDIT_INPUT';
 
 export type ChangeUsernameValue = {
   type: typeof CHANGE_USERNAME_VALUE;
@@ -31,6 +32,10 @@ export type ChangeUserComment = {
   type: typeof CHANGE_USER_COMMENT;
   inputValue: string;
 };
+export type ChangeEditInput = {
+  type: typeof CHANGE_EDIT_INPUT;
+  inputValue: string;
+};
 
 export type InitialState = {
   userName: string;
@@ -39,6 +44,7 @@ export type InitialState = {
   commentUserName: string;
   userEmail: string;
   userComment: string;
+  editInput: string;
 };
 
 export type AllActions =
@@ -47,4 +53,5 @@ export type AllActions =
   | ChangeSearchInput
   | ChangeUserName
   | ChangeUserComment
-  | ChangeUserEmail;
+  | ChangeUserEmail
+  | ChangeEditInput;

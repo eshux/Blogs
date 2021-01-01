@@ -1,6 +1,5 @@
 $white: white;
 $grey: #BBC8C8;
-
 .postHero {
     background-color: $grey;
     width: 100%;
@@ -16,4 +15,8 @@ $grey: #BBC8C8;
 
 .img {
     width: 300px;
+}
+
+.editInput {
+    min-width: 500px;
 }

@@ -7,6 +7,7 @@ import {
   CHANGE_USER_NAME,
   CHANGE_USER_EMAIL,
   CHANGE_USER_COMMENT,
+  CHANGE_EDIT_INPUT,
 } from './type';
 
 const initialState: InitialState = {
@@ -16,6 +17,7 @@ const initialState: InitialState = {
   commentUserName: '',
   userEmail: '',
   userComment: '',
+  editInput: '',
 };
 
 export const inputReducer = (state = initialState, actions: AllActions) => {
@@ -48,6 +50,11 @@ export const inputReducer = (state = initialState, actions: AllActions) => {
     case CHANGE_USER_COMMENT: {
       const newState = { ...state };
       newState.userComment = actions.inputValue;
+      return newState;
+    }
+    case CHANGE_EDIT_INPUT: {
+      const newState = { ...state };
+      newState.editInput = actions.inputValue;
       return newState;
     }
 

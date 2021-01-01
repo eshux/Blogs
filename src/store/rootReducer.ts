@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { editReducer } from './edit/reducer';
 import { postReducer } from './posts/reducer';
 import { commentReducer } from './comments/reducer';
 import { loginReducer } from './login/reducer';
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   inputReducer,
   userReducer,
   showCommentsReducer,
+  editReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
