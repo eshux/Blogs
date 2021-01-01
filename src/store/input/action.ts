@@ -11,6 +11,8 @@ import {
   CHANGE_USER_EMAIL,
   ChangeUserComment,
   CHANGE_USER_COMMENT,
+  CHANGE_EDIT_INPUT,
+  ChangeEditInput,
 } from './type';
 
 export const changeUsernameValue = (
@@ -54,6 +56,13 @@ export const changeUserEmail = (inputValue: string): ChangeUserEmail => {
 export const changeUserComment = (inputValue: string): ChangeUserComment => {
   return {
     type: CHANGE_USER_COMMENT,
+    inputValue,
+  };
+};
+
+export const changeEditInput = (inputValue: string): ChangeEditInput => {
+  return {
+    type: CHANGE_EDIT_INPUT,
     inputValue,
   };
 };
