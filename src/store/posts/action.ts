@@ -13,7 +13,7 @@ export const getPostData = () => {
   return async (dispatch: Dispatch) => {
     const data = await axios.get('https://jsonplaceholder.typicode.com/posts');
     const filtered = data.data.filter(
-      (item: Object, index: number) => index < 10
+      (item: Object, index: number) => index < 15
     );
     dispatch(getPosts(filtered));
   };
