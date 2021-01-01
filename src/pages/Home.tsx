@@ -8,7 +8,6 @@ import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const newPosts = useSelector((state: RootState) => state.postReducer);
@@ -28,14 +27,13 @@ const Home = () => {
 
   const activeUser = users.find((item) => item.isActive);
 
-
-
   if (!newPosts[0]) {
     return <h1>Loading...</h1>;
   }
+
   return (
     <section>
-      <div className="container">
+      <div className="container container-fluid">
         <div className="row center-xs">
           <div className="col-xs-12">
             <H2>Hello {activeUser?.userName}</H2>
@@ -43,12 +41,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="row">
-          {newPosts.map(({ userId, id, title, body }) => {
+        <div className="row center-xs">
+          {newPosts.map(({ id, title, body }) => {
             return (
-              <div key={id} className="col-md-4 col-sm-6 col-xs-12">
+              <div key={id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <PostCard
-                  userId={userId}
                   id={id}
                   title={title}
                   body={body}

@@ -3,7 +3,6 @@ import style from './Image.module.scss';
 
 type Props = {
   id: number;
-
   w: number;
   h: number;
 };
@@ -19,7 +18,7 @@ export const Image: FC<Props> = ({ w, h, id }) => {
       }
     >
       <img
-        src={`https://placebeard.it/200x200/${id}`}
+        src={`https://placebeard.it/400x400/${id}`}
         alt=""
         className={style.image}
       />

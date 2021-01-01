@@ -9,6 +9,10 @@ export const H2: FC = ({ children }) => {
   return <h2 className={style.h2}>{children}</h2>;
 };
 
+export const H3: FC = ({ children }) => {
+  return <h3 className={style.h3}>{children}</h3>;
+};
+
 export const P1: FC = ({ children }) => {
   return <p className={style.p1}>{children}</p>;
 };

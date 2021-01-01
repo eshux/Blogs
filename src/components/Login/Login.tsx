@@ -8,6 +8,8 @@ import {
   changePasswordValue,
 } from '../../store/input/action';
 import { setActiveUser } from '../../store/users/action';
+import closeIcon from '../../assets/CloseIcon.svg';
+
 
 const Login: FC = () => {
   const dispatch = useDispatch();
@@ -18,10 +20,9 @@ const Login: FC = () => {
   const passwordValue = useSelector(
     (state: RootState) => state.inputReducer.password
   );
-
   const users = useSelector((state: RootState) => state.userReducer);
+
   const allUserNames = users.map((item) => item.userName);
-  console.log(allUserNames);
 
   const loginHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -33,38 +34,41 @@ const Login: FC = () => {
     }
   };
 
-  console.log(inputValue, passwordValue);
   return (
     <div
       className={`${style.wrapper} 
       ${show ? style.wrapperShow : ''}`}
     >
       <div className={style.content}>
-        <h1>Login to your account</h1>
+        <span className={style.text}>
+          <b>Welcome back,</b>
+          sign in to continue
+        </span>
+
         <button
           type="button"
           className={style.closeBtn}
           onClick={() => dispatch(showLogin(!show))}
         >
-          x
+          <img src={closeIcon} alt='' />
         </button>
-        <form>
+        <form className={style.form}>
           <input
+            className={style.input}
             type="text"
             placeholder="Username"
             value={inputValue}
             onChange={(event) => dispatch(changeInputValue(event.target.value))}
           />
-          <br />
           <input
+            className={style.input}
             type="password"
             placeholder="Password"
             value={passwordValue}
             onChange={(e) => dispatch(changePasswordValue(e.target.value))}
           />
-          <br />
-          <button type="submit" onClick={loginHandler}>
-            Login
+          <button type="submit" className={style.button} onClick={loginHandler}>
+            Sign in
           </button>
         </form>
       </div>
