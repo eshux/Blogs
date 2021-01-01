@@ -9,14 +9,7 @@ type Props = {
 
 export const Image: FC<Props> = ({ w, h, id }) => {
   return (
-    <div
-      className={style.imageWrapper}
-      style={
-        {
-          // paddingTop: `${(h / w) * 100}%`,
-        }
-      }
-    >
+    <div className={style.imageWrapper}>
       <img
         src={`https://placebeard.it/400x400/${id}`}
         alt=""

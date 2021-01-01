@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { H2, P2 } from '../Typography/Typography';
+import { H2, P2, P3 } from '../Typography/Typography';
 import style from './PostCard.module.scss';
 import { Image } from '../Image/Image';
 
@@ -17,6 +17,7 @@ export const PostCard: FC<Props> = ({ id, title, body, onClick }) => {
         <Image w={1} h={1} id={id} />
         <H2>{title}</H2>
         <P2>{body}</P2>
+        <P3>Beard more</P3>
       </div>
     </button>
   );

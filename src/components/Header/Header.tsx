@@ -30,8 +30,9 @@ export const Header: FC = () => {
               Login
               <img src={login} alt="" />
             </button>
+
+            <Login />
           </div>
-          <Login />
         </div>
       </div>
     </header>

@@ -4,12 +4,12 @@ import style from './Login.module.scss';
 import { RootState } from '../../store/rootReducer';
 import { showLogin } from '../../store/login/action';
 import {
-  changeInputValue,
+  changeUsernameValue,
   changePasswordValue,
 } from '../../store/input/action';
 import { setActiveUser } from '../../store/users/action';
 import closeIcon from '../../assets/CloseIcon.svg';
-
+import { UserData } from '../../data/userData';
 
 const Login: FC = () => {
   const dispatch = useDispatch();
@@ -20,18 +20,22 @@ const Login: FC = () => {
   const passwordValue = useSelector(
     (state: RootState) => state.inputReducer.password
   );
-  const users = useSelector((state: RootState) => state.userReducer);
 
-  const allUserNames = users.map((item) => item.userName);
+  const users: UserData[] = JSON.parse(localStorage.users);
+  const allUserNames: string[] = users.map((item) => item.userName);
+
 
   const loginHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     if (allUserNames.includes(inputValue)) {
       const activeUser = users.find((item) => item.userName === inputValue);
       if (activeUser!.password === passwordValue) {
-        dispatch(setActiveUser(activeUser!.userId));
+        dispatch(setActiveUser(activeUser!));
+        dispatch(showLogin(!show));
       }
     }
+    dispatch(changeUsernameValue(''));
+    dispatch(changePasswordValue(''));
   };
 
   return (
@@ -58,7 +62,7 @@ const Login: FC = () => {
             type="text"
             placeholder="Username"
             value={inputValue}
-            onChange={(event) => dispatch(changeInputValue(event.target.value))}
+            onChange={(e) => dispatch(changeUsernameValue(e.target.value))}
           />
           <input
             className={style.input}

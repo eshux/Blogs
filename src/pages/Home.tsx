@@ -1,31 +1,27 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { getPosts } from '../store/posts/action';
+import { getPostData } from '../store/posts/action';
 import { H2 } from '../components/Typography/Typography';
 import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
+import { UserData } from '../data/userData';
 
 const Home = () => {
   const dispatch = useDispatch();
   const newPosts = useSelector((state: RootState) => state.postReducer);
-  const users = useSelector((state: RootState) => state.userReducer);
+  // @ts-ignore
+  const activeUser: UserData = useSelector(
+    (state: RootState) => state.userReducer
+  );
   const history = useHistory();
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
-      const filteredPosts = response.data.filter(
-        (item: Object, index: number) => {
-          return index < 15;
-        }
-      );
-      dispatch(getPosts(filteredPosts));
-    });
+    dispatch(getPostData());
   }, []);
 
-  const activeUser = users.find((item) => item.isActive);
+  // const activeUser = users.find((item) => item.isActive);
 
   if (!newPosts[0]) {
     return <h1>Loading...</h1>;
@@ -36,7 +32,7 @@ const Home = () => {
       <div className="container container-fluid">
         <div className="row center-xs">
           <div className="col-xs-12">
-            <H2>Hello {activeUser?.userName}</H2>
+            <H2>Hello {activeUser && activeUser?.userName}</H2>
             <SearchBar />
           </div>
         </div>

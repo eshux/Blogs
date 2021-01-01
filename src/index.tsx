@@ -5,6 +5,9 @@ import App from './App';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store/store';
+import { userData } from './data/userData';
+
+localStorage.users = JSON.stringify(userData);
 
 ReactDOM.render(
   <React.StrictMode>
