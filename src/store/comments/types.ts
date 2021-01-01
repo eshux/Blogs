@@ -1,4 +1,5 @@
 export const GET_COMMENTS = 'GET_COMMENTS';
+export const ADD_COMMENT = 'ADD_COMMENT';
 
 export type Comments = {
   postId: number;
@@ -6,11 +7,16 @@ export type Comments = {
   name: string;
   email: string;
   body: string;
-}[];
+};
 
 export type GetComments = {
   type: typeof GET_COMMENTS;
-  comments: Comments;
+  comments: Comments[];
 };
 
-export type AllActions = GetComments;
+export type AddComment = {
+  type: typeof ADD_COMMENT;
+  comment: Comments;
+};
+
+export type AllActions = GetComments | AddComment;
