@@ -7,10 +7,16 @@ import { showLogin } from '../../store/login/action';
 import logo from '../../assets/logo.svg';
 import login from '../../assets/user.svg';
 import style from './Header.module.scss';
+import { UserData } from '../../data/userData';
+import { setActiveUser } from '../../store/users/action';
 
 export const Header: FC = () => {
   const dispatch = useDispatch();
   const show = useSelector((state: RootState) => state.loginReducer);
+  // @ts-ignore
+  const activeUser: UserData = useSelector(
+    (state: RootState) => state.userReducer
+  );
 
   return (
     <header>
@@ -22,14 +28,25 @@ export const Header: FC = () => {
             </Link>
           </div>
           <div className="col-xs-9">
-            <button
-              className={style.loginBtn}
-              type="button"
-              onClick={() => dispatch(showLogin(!show))}
-            >
-              Login
-              <img src={login} alt="" />
-            </button>
+            {!activeUser.userId ? (
+              <button
+                className={style.loginBtn}
+                type="button"
+                onClick={() => dispatch(showLogin(!show))}
+              >
+                Login
+                <img src={login} alt="" />
+              </button>
+            ) : (
+              <button
+                className={style.loginBtn}
+                type="button"
+                // @ts-ignore
+                onClick={() =>  dispatch(setActiveUser({}))}
+              >
+                Log out
+              </button>
+            )}
 
             <Login />
           </div>
