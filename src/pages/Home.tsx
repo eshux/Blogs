@@ -14,7 +14,6 @@ const Home = () => {
     (state: RootState) => state.inputReducer.searchInput
   );
   const newPosts = useSelector((state: RootState) => state.postReducer);
-  // @ts-ignore
   const activeUser: UserData = useSelector(
     (state: RootState) => state.userReducer
   );
@@ -35,7 +34,9 @@ const Home = () => {
       <div className="container container-fluid">
         <div className="row center-xs">
           <div className="col-xs-12">
-            <H1>Do you have a beard { activeUser && activeUser?.userName}?</H1>
+            <H1>
+              Do you have a beard {activeUser.userName && activeUser.userName}?
+            </H1>
             <SearchBar />
           </div>
         </div>
@@ -56,7 +57,7 @@ const Home = () => {
                   />
                 </div>
               );
-            }) 
+            })
             : filtered.map(({ id, title, body }) => {
               return (
                 <div

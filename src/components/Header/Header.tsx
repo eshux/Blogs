@@ -13,7 +13,6 @@ import { setActiveUser } from '../../store/users/action';
 export const Header: FC = () => {
   const dispatch = useDispatch();
   const show = useSelector((state: RootState) => state.loginReducer);
-  // @ts-ignore
   const activeUser: UserData = useSelector(
     (state: RootState) => state.userReducer
   );
@@ -40,9 +39,13 @@ export const Header: FC = () => {
             ) : (
               <button
                 className={style.loginBtn}
-                type="button"
-                // @ts-ignore
-                onClick={() =>  dispatch(setActiveUser({}))}
+                type="button"  
+                onClick={() => dispatch(setActiveUser({
+                  userId: 0,
+                  userName: '',
+                  password: '',
+                  isAdmin: false,
+                }))}
               >
                 Log out
               </button>
