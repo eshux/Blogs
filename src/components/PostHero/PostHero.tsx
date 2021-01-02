@@ -32,22 +32,23 @@ const PostHero: FC<Props> = ({ id, title, body }) => {
 
   return (
     <div className={style.postHero}>
-      <div className={style.img}>
-        <Image w={1} h={1} id={id} />
-      </div>
-      {showEditInput === true ? (
-        <textarea
-          className={style.editInput}
-          value={editInput}
-          onChange={(e) => dispatch(changeEditInput(e.target.value))}
-        />
-      ) : (
-        <div>
-          <H1>{title}</H1>
-          <P1>{body}</P1>
+      <div className={style.contents}>
+        <div className={style.img}>
+          <Image w={1} h={1} id={id} />
         </div>
-      )}
-
+        {showEditInput === true ? (
+          <textarea
+            className={style.editInput}
+            value={editInput}
+            onChange={(e) => dispatch(changeEditInput(e.target.value))}
+          />
+        ) : (
+          <div className={style.text}>
+            <H1>{title}</H1>
+            <P1>{body}</P1>
+          </div>
+        )}
+      </div>
       <div>
         {activeUser.isAdmin === true && (
           <button type="button" onClick={editHandler}>

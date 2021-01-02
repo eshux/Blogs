@@ -83,11 +83,10 @@ export const CommentField: FC<Props> = ({ idPost }) => {
           );
         })}
       <div>
-        <button type="button" className={style.button} onClick={clickHandler}>
-          ADD COMMENT
-        </button>
+        
         <br />
         <input
+          className={style.input}
           type="text"
           placeholder="Username"
           value={newUser}
@@ -95,6 +94,7 @@ export const CommentField: FC<Props> = ({ idPost }) => {
         />
         <br />
         <input
+          className={style.input}
           type="email"
           placeholder="Email"
           value={newEmail}
@@ -102,11 +102,15 @@ export const CommentField: FC<Props> = ({ idPost }) => {
         />
         <br />
         <input
+          className={`${style.input} ${style.comment}`}
           type="text"
           placeholder="Comment"
           value={newComment}
           onChange={(event) => dispatch(changeUserComment(event.target.value))}
         />
+        <button type="button" className={style.button} onClick={clickHandler}>
+          ADD COMMENT
+        </button>
       </div>
     </div>
   );

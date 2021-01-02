@@ -11,7 +11,7 @@ export const Image: FC<Props> = ({ w, h, id }) => {
   return (
     <div className={style.imageWrapper}>
       <img
-        src={`https://placebeard.it/400x400/${id}`}
+        src={`https://placebeard.it/g/400x400/${id}`}
         alt=""
         className={style.image}
       />

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getPostData } from '../store/posts/action';
-import { H2 } from '../components/Typography/Typography';
+import { H1 } from '../components/Typography/Typography';
 import { PostCard } from '../components/PostCard/PostCard';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { RootState } from '../store/rootReducer';
@@ -35,7 +35,7 @@ const Home = () => {
       <div className="container container-fluid">
         <div className="row center-xs">
           <div className="col-xs-12">
-            <H2>Hello {activeUser && activeUser?.userName}</H2>
+            <H1>Do you have a beard { activeUser && activeUser?.userName}?</H1>
             <SearchBar />
           </div>
         </div>
@@ -56,7 +56,7 @@ const Home = () => {
                   />
                 </div>
               );
-            })
+            }) 
             : filtered.map(({ id, title, body }) => {
               return (
                 <div
