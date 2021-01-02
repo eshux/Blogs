@@ -1,22 +1,26 @@
 $white: white;
-$grey: #BBC8C8;
 .postHero {
-    background-color: $grey;
     width: 100%;
-    border-color: $grey;
-    border-radius: 5px;
-    border-width: thin;
     margin-bottom: 50px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .img {
-    width: 300px;
+    width: 800px;
 }
 
 .editInput {
     min-width: 500px;
+}
+
+.contents {
+    display: flex;
+}
+
+.text {
+    padding: 40px;
 }

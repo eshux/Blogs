@@ -1,5 +1,10 @@
 .logo {
     width: 120px;
+    transition: opacity 0.2s;
+}
+
+.logo:hover {
+    opacity: 0.7;
 }
 
 .loginBtn {
@@ -11,8 +16,9 @@
     justify-content: center;
     align-items: center;
     float: right;
+    font-size: 18px;
 }
 
-.loginBtn > :last-child {
+.loginBtn> :last-child {
     margin-left: 5px;
 }

@@ -29,39 +29,34 @@ const Post = () => {
     <section>
       <div className="container container-fluid">
         <div className="row center-xs">
-          <div className="col-xs-12">
-            <h1>This is Post Page</h1>
+          <div className="col-xs-12 center-xs">
+            <PostHero
+              id={singlePost.id}
+              title={singlePost.title}
+              body={singlePost.body}
+            />
           </div>
-          <div className="row center-xs">
-            <div className="col-xs-12 center-xs">
-              <PostHero
-                id={singlePost.id}
-                title={singlePost.title}
-                body={singlePost.body}
-              />
-            </div>
-          </div>
+        </div>
 
-          <div className="row">
-            <div className="col-xs-12 center-xs">
-              <CommentField idPost={idPost} />
-            </div>
+        <div className="row">
+          <div className="col-xs-12 center-xs">
+            <CommentField idPost={idPost} />
           </div>
+        </div>
 
-          <div className="row center-xs">
-            {newPosts.slice(1, 4).map(({ id, title, body }) => {
-              return (
-                <div key={id} className="col-md-4 col-sm-6 col-xs-12">
-                  <PostCard
-                    id={id}
-                    title={title}
-                    body={body}
-                    onClick={() => history.push(`/Post/${id}`)}
-                  />
-                </div>
-              );
-            })}
-          </div>
+        <div className="row center-xs">
+          {newPosts.slice(1, 4).map(({ id, title, body }) => {
+            return (
+              <div key={id} className="col-md-4 col-sm-6 col-xs-12">
+                <PostCard
+                  id={id}
+                  title={title}
+                  body={body}
+                  onClick={() => history.push(`/Post/${id}`)}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
